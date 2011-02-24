@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag 'reset','grid','base', 'application','dropdown'%>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'application' %>
+  <title>ALumni <%=raw ((yield(:title) || "Untitled")) %></title>
+  <%= yield :head %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div class="container_16 every-thing">
+  <div class="header">
+    <div class="login-bar">
+      <div class='login-menu'>
+        <ul class="main-ul">
+          <% unless user_signed_in? %>
+            <li class="main-li"> <%=link_to image_tag("twitter_32.png", :size => "32x32", :alt => "Twitter"),'/auth/twitter' %> </li>
+            <li class="main-li"> <%=link_to image_tag("facebook_32.png", :size => "32x32", :alt => "Facebooks"),'/auth/twitter' %> </li>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_path %> or
+              <%= link_to "SIGN IN", new_user_session_path %>
+            </li>
+          <% else %>
+            <li  class="main-li">Signed in as  <%=current_user.email %> |</li>
+            <li  class="main-li"><%= link_to "Logout",destroy_user_session_path() %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="header-row" ></div>
+
+    <div id="main_header">
+      <div class="header-content">Mumbai Ruby User Group</div>
+      <div id="main_nav" style="float:right;padding-right:10px;">
+        <ul>
+          <li class="active_class" id="home"><%= link_to "Home", root_url,:class=>active_class %></li>
+          <% unless user_signed_in? %>
+            <li class="active_class" id="login"><%= link_to "Login", authentications_path,:class=>active_class %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div id="sub_nav">
+    </div>
+  </div>
+  <%= clearing_span %>
+  <div id="content" >
+
+    <div id="main_content" class="grid_16">
+      <%= yield %>
+    </div>
+
+    <%= clearing_span %>
+  </div>
+
+  <div class="push"></div>
+</div>
+<%= clearing_span %>
+<div  class="container_16" id="footer-wrapper">
+  <div class="footer-row"></div>
+  <div id="footer">
+
+    <p class="copyright">Mumbai Ruby User Group</a></p>
+  </div>
+  <%= yield :javascript %>
+  <script>
+    function addActive()
+    {
+      $(".active_class").removeClass('active');
+      var active_id = $(".active_class:first a").attr('class');
+
+      $(".active_class").each(function(){
+        if($(this).attr('id')==active_id)
+        {
+          $(this).addClass('active');
+          return;
+        }
+
+
+      });
+    }
+    $(document).ready(function(){
+
+      addActive();
+    });
+  </script>
+</div>
+</body>
+</html>
