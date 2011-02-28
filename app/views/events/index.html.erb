@@ -1,0 +1,88 @@
+<p>
+  <% if user_signed_in? %>
+    <%=link_to 'Create Event',new_event_path,:id=>'create-event'%>
+  <% end %>
+</p>
+<div id='dialog'>
+
+</div>
+
+<div>
+  <div id='calendar'>
+  </div>
+</div>
+<% content_for :javascript do%>
+  <%= javascript_include_tag 'jquery-ui-1.8.10.custom.min' %>
+  <%= stylesheet_link_tag "jquery-ui-1.8.10.custom"%>
+  <%= stylesheet_link_tag "fullcalendar"%>
+  <%= javascript_include_tag "fullcalendar"%>
+  <script>
+
+    $(document).ready(function(){
+    
+      $('#dialog').dialog({ modal:true, width:600, height:460, autoOpen: false});
+
+      // page is now ready, initialize the calendar...
+      $("#create-event").live("click",function(event){
+        $.ajax({
+          type: "GET",
+          url: this.href,
+          success: function(html){
+            $('#dialog').html(html).dialog('open');
+          }
+        });
+        event.preventDefault();
+        return false;
+      });
+      $('#calendar').fullCalendar({
+        editable: true,
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+        defaultView: 'agendaWeek',
+        height: 500,
+        slotMinutes: 15,
+
+        events: "/events/get_events",
+        timeFormat: 'h:mm t{ - h:mm t} ',
+        dragOpacity: "0.5",
+        eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
+          moveEvent(event, dayDelta, minuteDelta, allDay);
+        },
+        eventResize: function(event, dayDelta, minuteDelta, revertFunc){
+          resizeEvent(event, dayDelta, minuteDelta);
+        },
+        eventClick: function(event, jsEvent, view){
+          $.ajax({
+            type: "GET",
+            url: "events/"+event.id,
+            success: function(html){
+              $('#dialog').html(html).dialog('open');
+            }
+          });
+        }
+      });
+      
+      function moveEvent(event, dayDelta, minuteDelta, allDay){
+        jQuery.ajax({
+          data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
+          dataType: 'script',
+          type: 'post',
+          url: "/events/move"
+        });
+      }
+
+      function resizeEvent(event, dayDelta, minuteDelta){
+        jQuery.ajax({
+          data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
+          dataType: 'script',
+          type: 'post',
+          url: "/events/resize"
+        });
+      }
+    });
+  </script>
+
+<% end %>

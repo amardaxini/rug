@@ -1,0 +1,36 @@
+<div>
+  <b>Name:</b>
+  <%= @event.title %>
+</div>
+
+<div>
+  <b>Description:</b>
+  <%= @event.description %>
+</div>
+
+<div>
+  <b>Start time:</b>
+  <%= @event.start_time %>
+</div>
+
+<div>
+  <b>End time:</b>
+  <%= @event.end_time %>
+</div>
+<script>
+  $("#edit-event").live("click",function(){
+    $.ajax({
+      type: "GET",
+      url: this.href,
+
+      success: function(html){
+        $('#dialog').html(html).dialog('open');
+
+      }
+    });
+    return false;
+  })
+</script>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_event_path(@event),:id=>'edit-event' %>
+<% end %>

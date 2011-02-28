@@ -10,7 +10,7 @@ body {
   color:#7aaaa8;
 }
 .login-menu{
-  /*border:solid red 1px;*/
+/*border:solid red 1px;*/
   margin:0 5px 0 0;
   padding:4px;
   float:right;
@@ -21,7 +21,7 @@ body {
 }
 .login-bar ul.main-ul>li{
   float:left;
-    margin-left:10px;
+  margin-left:10px;
 }
 .login-li{
   font-size:18px;
@@ -42,94 +42,138 @@ body {
   color:#fff;
 }
 .header-row{
-    height:6px;
-    background-color:#ddd;
-    margin:0;
+  height:6px;
+  background-color:#ddd;
+  margin:0;
 /*border:solid #ddd 7px*/
 }
 #main_header{
 /*background-color:#4f9fa3;*/
 /*background-color: #b2bfbf;*/
 /*background-color: #a2cad3;*/
-    /*background-color: #a2cfc9;*/
+/*background-color: #a2cfc9;*/
 /*background-color: #9FBACD;*/
-    height:60px;
+  height:60px;
 
 }
 #main_header .header-content{
-    height:30px;
-    margin:0 10px;
-    font-size:29px;
+  height:30px;
+  margin:0 10px;
+  font-size:29px;
 }
 #main_nav{
   float:right;
 }
 #main_nav ul{
-    list-style:none;
+  list-style:none;
 }
 #main_nav ul li{
-    display:inline;
-    margin-left: 5px;
+  display:inline;
+  margin-left: 5px;
 
 }
 #main_nav ul li a{
-    display:block;
-    float:left;
-    margin:-10px 4px 0 4px;
-    padding:10px;
-    color:white;
-    font-size:12px;
-    font-weight:bold;
-    text-decoration:none;
-    background-color: #7c82b3;
+  display:block;
+  float:left;
+  margin:-10px 4px 0 4px;
+  padding:10px;
+  color:white;
+  font-size:12px;
+  font-weight:bold;
+  text-decoration:none;
+  background-color: #7c82b3;
 
 }
 #main_nav ul li a{
-   -moz-border-radius-topleft: 10px;
-   -moz-border-radius-topright: 10px;
-    border-top-left-radius: 10px 10px;
-    border-top-right-radius: 10px 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
 }
 
 #main_nav ul li a:hover,#main_nav ul li.active a{
-    font-weight:bold;
-    background-color: #3e4040;
+  font-weight:bold;
+  background-color: #3e4040;
 }
 /* Sub Nav CSS */
 #sub_nav{
-    height:30px;
-    background-color: #3e4040;
-    color:#8a847c;
-    margin:-2px;
+  height:30px;
+  background-color: #3e4040;
+  color:#8a847c;
+  margin:-2px 0 7px 0;
 }
 
 div#content form.data-form {
-    margin: 0;
-    padding: 0 20px 20px 20px;
+  margin: 0;
+  padding: 0 20px 20px 20px;
 }
 
 
 div#content form.data-form p, div#content form.data-form div { margin:0; padding: 10px 0 0 0;}
 
-div#content form.data-form input[type=text],
-div#content form.data-form textarea,
-div#content form.data-form input[type=password]
+ form.data-form input[type=text],
+ form.data-form textarea,
+ form.data-form input[type=password]
 {
-    padding: 3px;
-    font-size: 1.05em;
-    color: #444;
+  padding: 3px;
+  font-size: 1.05em;
+  color: #444;
 }
-div#content form.data-form input[type=text],div#content form.data-form input[type=password]{  width: 50%;height:25px; }
-div#content form.data-form textarea { width: 98%; height: 80px; }
+ form.data-form input[type=text],div#content form.data-form input[type=password]{  width: 50%;height:25px; }
+ form.data-form textarea { width: 98%; height: 80px; }
 
-div#content form.data-form input[type=submit] {
-    font-size: 1.2em;
-    padding: 10px;
-    border-top    : 1px solid #BBB;
-    border-left   : 1px solid #BBB;
-    border-right  : 1px solid #666;
-    border-bottom : 1px solid #666;
-    background-color: #DDD;
+ form.data-form input[type=submit] {
+  font-size: 1.2em;
+  padding: 10px;
+  border-top    : 1px solid #BBB;
+  border-left   : 1px solid #BBB;
+  border-right  : 1px solid #666;
+  border-bottom : 1px solid #666;
+  background-color: #DDD;
+}
+form.big_form label {
+    float: left;
+    display: block;
+    padding: 5px;
+    width: 15%;
+    text-align: left;
+}
+form.big_form div input, form.big_form div textarea, form.big_form div select {
+    margin: 5px;
+    padding: 1px;
+}
+form.big_form div input.submit {
+    width: auto;
+}
+form.big_form div input.wide, form.big_form div textarea.wide {
+    width: 75%;
+}
+form.big_form div input.short, form.big_form div textarea.short {
+    width: 55%;
+    }
+.event-title, .event-desc{
+  background-color: #00c8ff;
+  padding-left:10px;
+  cursor:pointer;
+}
+.event{
+  -moz-border-radius:5px 5px 0 0;
+   border-radius:5px 5px 0 0;
+}
+
+.event .event-desc{
+  /*-moz-border-radius:0 0 5px 5px;*/
+  /*border-radius:0 0 5px 5px;*/
+}
+.event .event-desc{
+  
+}
+.event-title{
+  margin-top:10px;
+}
+.event-delete{
+  float:right;
+  padding-right:5px;
 }
 /* footer*/
 {

@@ -1,0 +1,10 @@
+if @event
+  if @event.save
+    page<<"$('#calendar').fullCalendar( 'refetchEvents' )"
+    page<<"$(':input').not(':button, :submit, :reset, :hidden').each( function() {
+    this.value = this.defaultValue;});"
+	  page<<"$('#dialog').dialog('close');"
+  else
+    page.alert @event.errors.full_messages
+  end
+end

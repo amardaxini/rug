@@ -1,4 +1,16 @@
 Rug::Application.routes.draw do
+  resources :events do
+	  member do
+		  put 'update_time'
+
+	  end
+	  collection do
+		  get 'get_events'
+		  post 'move'
+		  post 'resize'
+	  end
+  end
+
 	resources :authentications
 	match '/auth/:provider/callback' => 'authentications#create'
 	devise_for :users, :controllers => {:registrations => 'registrations'}

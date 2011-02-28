@@ -28,7 +28,8 @@ module ApplicationHelper
 						"registrations.edit" =>'home',
 						"registrations.new" =>'register',
 						"sessions.new"=>"login",
-						"authentications.index"=>"login"
+						"authentications.index"=>"login",
+						"events"=>"event"
 
 		}
 		#debugger
