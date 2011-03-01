@@ -2,14 +2,18 @@ Website has following features
 
 Twitter/Devise Authentication
 Event can be Added or update
-
+Added basic authorization as follows
+  Added admin,author role
+  Admin can manage all
+  Guest user can view all
+  Login User create/edit their events
 
 TODO
-
-Add Authorization
-Add Blog
-Add SlideShare/Scribd Api integration
-CSS Work
-Code Refactor
+  Update Authorization
+  Need To provide view for adding admin,author
+  Add Blog
+  Add SlideShare/Scribd Api integration
+  CSS Work
+  Code Refactor
 
 
