@@ -1,16 +1,17 @@
 class EventsController < ApplicationController
-
+	load_and_authorize_resource :except =>[:index,:get_events,:show]
+	skip_before_filter :authenticate_user!,:only=>[:index,:get_events,:show]
 	def new
-		@event = Event.new
+		@event = current_user.events.new
 		render :layout => false
+
 	end
 
 	def create
-		@event = Event.new(params[:event])
+		@event = current_user.events.new(params[:event])
 	end
 
 	def index
-
 	end
 
 
@@ -20,7 +21,9 @@ class EventsController < ApplicationController
 		@events.each do |event|
 			events << {:id => event.id, :title => event.title, :description => event.description || "Some cool description here...", :start => "#{event.start_time.iso8601}", :end => "#{event.end_time.iso8601}", :allDay => event.all_day}
 		end
+
 		render :text => events.to_json
+
 	end
 
 
@@ -57,7 +60,7 @@ class EventsController < ApplicationController
 
 	def update
 		@event = Event.find_by_id(params[:id])
-		debugger
+
 		@event.attributes = params[:event]
 		@event.save
 

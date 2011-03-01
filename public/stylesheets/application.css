@@ -102,7 +102,23 @@ body {
   color:#8a847c;
   margin:-2px 0 7px 0;
 }
+div.flash_notice, div.flash_error, div.flash_warning {
+    padding: 2px 7px;
+    background-color: #FFEECC;
+    border: 1px solid #DDDDBB;
+    margin:20px;
+    text-align:center;
+}
 
+div.flash_error {
+    background-color: #FFBBBB;
+    border-color: #EE6666;
+}
+
+div.flash_warning {
+    background-color: #FFDDCC;
+    border-color: #FF8866;
+}
 div#content form.data-form {
   margin: 0;
   padding: 0 20px 20px 20px;

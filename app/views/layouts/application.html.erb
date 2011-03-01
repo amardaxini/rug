@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag 'reset','grid','base', 'application'  %>
+  <%= stylesheet_link_tag 'reset','grid','base', 'application' %>
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'application' %>
   <title>MRUG Mumbai Ruby User Group<%=raw ((yield(:title) || "Untitled")) %></title>
@@ -49,6 +49,7 @@
   <div id="content" >
 
     <div id="main_content" class="<%= main_content_css_class %>">
+      <%=raw flash_messages %>
       <%= yield %>
     </div>
     <div id="sidebar" class="<%= sidebar_css_class %>">
@@ -67,6 +68,8 @@
     <p class="copyright">Mumbai Ruby User Group</p>
   </div>
   <%= yield :javascript %>
+
+
   <script>
     function addActive()
     {
@@ -79,10 +82,9 @@
           $(this).addClass('active');
           return;
         }
-
-
       });
     }
+
     $(document).ready(function(){
 
       addActive();

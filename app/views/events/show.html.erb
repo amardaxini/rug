@@ -31,6 +31,6 @@
     return false;
   })
 </script>
-<% if user_signed_in? %>
+<% if user_signed_in? && (can? :update, @event) %>
 <%= link_to 'Edit', edit_event_path(@event),:id=>'edit-event' %>
 <% end %>
