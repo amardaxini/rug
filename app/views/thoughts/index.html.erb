@@ -1,0 +1,16 @@
+<h2 class="thought-header">Now Easy To Share Your Thoughts</h2>
+<span class="thought-header" style="color:#888;font-size:15px">(You can share article/question/link/Code Snippet/.......)</span>
+ <%= will_paginate @thoughts %>
+<% @thoughts.each do |thought| %>
+  <div class="thought" id="<%= thought.title%>">
+    <hr class="separator" />
+    <h1 class="thought-item-url"><%=link_to thought.title,thought %></h1>
+    <span class="thought-content"><%=raw thought.thought_description %></span>
+  </div>
+<% end %>
+
+
+<% content_for :sidebar do %>
+  <%= link_to 'Share Your Thought', new_thought_path,:class=>:button %>
+  <%= render :partial=>'sidebar_thought_listing',:locals=>{:thoughts=>@recent_thoughts} %>
+<% end %>

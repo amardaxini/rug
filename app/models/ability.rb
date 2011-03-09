@@ -13,6 +13,11 @@ class Ability
 			can [:update,:move,:resize,:destroy], Event do |event|
 				event.try(:user) == user || user.role?(:admin)
 			end
+			can :create,Thought
+			can [:edit,:update,:destroy,:preview,:add_comment], Thought do |thought|
+				thought.try(:user) == user || user.role?(:admin)
+			end
+			can :create,Comment
 		end
 		#
 		# The first argument to `can` is the action you are giving the user permission to do.

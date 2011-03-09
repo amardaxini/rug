@@ -1,8 +1,16 @@
 Rug::Application.routes.draw do
+  resources :thoughts do
+	  collection do
+		  post 'preview'
+	  end
+	  member do
+		  post 'add_comment'
+	  end
+  end
+
   resources :events do
 	  member do
 		  put 'update_time'
-
 	  end
 	  collection do
 		  get 'get_events'

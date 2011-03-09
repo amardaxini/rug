@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="thought-header"><%= @thought.title %></h1>
+
+
+<div class="thought-header">
+  <%= raw @thought.thought_description%>
+</div>
+<% unless @comments.blank? %>
+<div class="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <div class='comment-name'><%= comment.user_name%></div>
+      <div class='comment-body'><%=raw comment.comment_description%></div>
+    </div>
+  <% end %>
+</div>
+<% end %>
+
+<div class="comment-form">
+  <div class="comment-font">Share Your Thought</div>
+  <%= form_tag(add_comment_thought_path(@thought),:method=>'post') do %>
+    <div>
+      <%= text_area_tag :description,'',:class=>'mark_it_up_content' %>
+    </div>
+    <%= submit_tag "Share" %>
+  <% end %>
+</div>
+<%= render :partial => 'markit_textile' %>
+
+<%= link_to 'Edit', edit_thought_path(@thought) %> |
+<%= link_to 'Back', thoughts_path %>
+
+<% content_for :sidebar do %>
+  <%= render :partial=>'sidebar_thought_listing',:locals=>{:thoughts=>@recent_thoughts} %>
+<% end %>

@@ -4,6 +4,8 @@ gem 'rails', '3.0.3'
 gem 'devise'
 gem 'omniauth'
 gem 'cancan'
+gem 'will_paginate',"3.0.pre2"
+gem 'RedCloth'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

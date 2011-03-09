@@ -136,7 +136,7 @@ div#content form.data-form p, div#content form.data-form div { margin:0; padding
   color: #444;
 }
  form.data-form input[type=text],div#content form.data-form input[type=password]{  width: 50%;height:25px; }
- form.data-form textarea { width: 98%; height: 80px; }
+ form.data-form textarea { width: 98%; height: 200px; }
 
  form.data-form input[type=submit] {
   font-size: 1.2em;
@@ -191,6 +191,86 @@ form.big_form div input.short, form.big_form div textarea.short {
   float:right;
   padding-right:5px;
 }
+.thought{
+    margin:10px;
+    padding-left:10px;
+}
+.thought-content{
+    margin:10px;
+}
+.separator{
+    border: none; border-bottom: 2px dotted #666;margin-bottom: 1em;
+}
+.thought-header{margin:5px 0 0 10px;padding-left:10px;}
+.thought-item-url a{
+    text-decoration:none;
+    color:black;
+}
+.comments{
+
+}
+.comment{
+margin:5px 0 0 10px;
+  padding:5px 10px;
+  background-color: #AAA;
+}
+.comment-name,.comment-font{
+  font-size:1.2em;
+  text-transform:capitalize;
+}
+.comment-body{
+  margin:5px 10px;
+}
+
+.comment-form{
+ margin:5px 0 0 10px;
+ padding:5px 10px;
+ background-color: #DDD;
+  
+}
+
+.comment-form textarea{
+  margin:7px 0;
+  width:90%;
+  height:120px;
+
+}
+.comment-form input[type=submit] {
+  font-size: 1.3em;
+  padding: 10px;
+  margin-bottom:7px;
+  border-top    : 1px solid #AAA;
+  border-left   : 1px solid #AAA;
+  border-right  : 1px solid #666;
+  border-bottom : 1px solid #666;
+  background-color: #BBB;
+  
+}
+/*sidebar */
+.thought-title{
+    margin:5px 5px 5px;
+    padding:5px 0 2px 0;
+
+}
+.thought-title a{
+    text-decoration:none;
+    color: #444;
+}
+div#sidebar a.button {
+
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0 10px 10px;
+    width: 160px;
+    padding: 4px 15px 2px 10px;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    background-position: 8px center;
+    background-repeat: no-repeat;
+    clear: both;
+
+}
 /* footer*/
 {
   margin:0;
@@ -207,14 +287,14 @@ div.every-thing {
 /*-webkit-box-shadow: 6px 0px 15px 3px #222,-6px 0px 15px 3px #222;*/
 /*-moz-box-shadow: 6px 0px 15px 3px #222,-6px 0px 15px 3px #222;*/
 /*box-shadow: 6px 0px 15px 3px #222,-6px 0px 15px 3px #222;*/
-  margin: 0 auto -38px ; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto -35px ; /* the bottom margin is the negative value of the footer's height */
   background-color:#eefeff;
 /*border:solid red 1px;*/
 
 }
 
 div#footer,div.push {
-  height: 30px; /* .push must be the same height as .footer */
+  height: 45px; /* .push must be the same height as .footer */
 }
 div#footer{
 

@@ -36,6 +36,7 @@
         <ul>
           <li class="active_class" id="home"><%= link_to "Home", root_url,:class=>active_class %></li>
           <li class="active_class" id="event"><%= link_to "Events", events_url,:class=>active_class %></li>
+          <li class="active_class" id="thought"><%= link_to "Thought", thoughts_url,:class=>active_class %></li>
           <% unless user_signed_in? %>
             <li class="active_class" id="login"><%= link_to "Login", authentications_path,:class=>active_class %></li>
           <% end %>

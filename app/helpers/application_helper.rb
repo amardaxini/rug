@@ -15,7 +15,7 @@ module ApplicationHelper
 	def sidebar_enabled?
 		current_page = "#{controller.controller_name}.#{controller.action_name}"
 		current_controller = controller.controller_name
-		pages = %w()
+		pages = %w(thoughts)
 
 		return pages.include?(current_page) || pages.include?(current_controller)
 	end
@@ -35,10 +35,15 @@ module ApplicationHelper
 						"registrations.new" =>'register',
 						"sessions.new"=>"login",
 						"authentications.index"=>"login",
-						"events"=>"event"
+						"events"=>"event",
+						"thoughts"=>"thought"
 
 		}
 		#debugger
 		classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || ''
+	end
+
+	def gist_url(url)
+		
 	end
 end
