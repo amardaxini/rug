@@ -32,5 +32,9 @@
 <%= link_to 'Back', thoughts_path %>
 
 <% content_for :sidebar do %>
+  <% if user_signed_in? && (can? :update, @thought) %>
+  <%= link_to 'Edit', edit_thought_path(@thought),:class=>'button' %>
+  <%= link_to 'Destroy', thought_path(@thought),:method=>:delete,:confirm =>"Are You sure?", :class=>'button' %>
+  <% end %>
   <%= render :partial=>'sidebar_thought_listing',:locals=>{:thoughts=>@recent_thoughts} %>
 <% end %>

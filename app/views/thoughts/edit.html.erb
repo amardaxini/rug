@@ -1,6 +1,8 @@
 <h1>Editing thought</h1>
 
 <%= render 'form' %>
+<% content_for :sidebar do %>
+  <%= link_to 'Back', thoughts_path,:class=>'button' %>
+  <%= link_to 'Show', @thought,:class=>'button' %>
+<% end %>
 
-<%= link_to 'Show', @thought %> |
-<%= link_to 'Back', thoughts_path %>
