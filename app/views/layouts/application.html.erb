@@ -17,6 +17,7 @@
           <% unless user_signed_in? %>
             <li class="main-li"> <%=link_to image_tag("twitter_32.png", :size => "32x32", :alt => "Twitter"),'/auth/twitter' %> </li>
             <li class="main-li"> <%=link_to image_tag("facebook_32.png", :size => "32x32", :alt => "Facebooks"),'/auth/twitter' %> </li>
+            <li class="main-li"> <%=link_to image_tag("github_32.png", :size => "32x32", :alt => "Github"),'/auth/github' %> </li>
             <li>
               <%= link_to "Sign Up", new_user_registration_path %> or
               <%= link_to "SIGN IN", new_user_session_path %>

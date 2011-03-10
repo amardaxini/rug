@@ -1,4 +1,6 @@
 Rug::Application.routes.draw do
+ 
+
   resources :thoughts do
 	  collection do
 		  post 'preview'
@@ -21,7 +23,7 @@ Rug::Application.routes.draw do
 
 	resources :authentications
 	match '/auth/:provider/callback' => 'authentications#create'
-	devise_for :users, :controllers => {:registrations => 'registrations'}
+	devise_for :users, :controllers => {:registrations => 'registrations',:sessions=>'user_sessions'}
 	root :to => "home#index"
 
 	# The priority is based upon order of creation:
