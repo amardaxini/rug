@@ -7,7 +7,7 @@ class UserSessionsController < Devise::SessionsController
 	def create
     super
     unless session[:omniauth].nil?
-	    current_user.authentications.create!(:provider => session[:omniauth]['provider'], :uid => session[:omniauth]['uid'].to_i)
+	    current_user.authentications.create!(:provider => session[:omniauth]['provider'], :uid => session[:omniauth]['uid'].to_s)
 	    session[:omniauth] = nil
     end
 
